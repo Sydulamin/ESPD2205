@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> update </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <br>
+    <br>
+    <div class="container " >
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <label>Name: </label>
+            <input type="text" name="name" value="{{pro.Name}}">
+            <br><br>
+
+            <label>E-mail:</label>
+            <input type="email" name="email" value="{{pro.email}}">
+            <br><br>
+            <div class="mb-3">
+                <label  class="form-label">age</label>
+                <input type="number" class="form-control" value="{{pro.age}}" aria-describedby="emailHelp" name="age">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1">gender</label>
+                <select class="form-control" id="exampleFormControlSelect1" value="{{pro.gender}}" name ="gender">
+                  <option>male</option>
+                  <option>female</option>
+                  <option>others</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">phone</label>
+                <input type="tel" class="form-control" value="{{pro.phone}}" aria-describedby="emailHelp" name="phone">
+              </div>
+              <div class="mb-3">
+                <label  class="form-label">address</label>
+                <input type="text" class="form-control" value="{{pro.address}}" name="address">
+              </div>
+            <br><br>
+            <img src="{{pro.image.url}}" width="100px" height="100px" alt="">
+            <input type="file" value="fileupload" id="fileupload" name="image" >
+            <br>
+            <br><br>
+            <input type="submit">
+        </form>
+        <p> <a href="{% url 'base' %}"> <button>See All Profiles</button> </a> </p>
+    </div>    
+        
+
+
+
+
+</body>
+</html>
